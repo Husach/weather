@@ -1,0 +1,58 @@
+*,
+a::after,
+a::before {
+	box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.page-weather {
+	display: flex;
+	padding: 30px;
+}
+
+.block {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 300px;
+	min-height: 450px;
+	background: #ece1e1;
+	padding: 30px;
+	margin-right: 20px;
+}
+
+.block__service {
+	font-size: 16px;
+	font-style: italic;
+	margin-bottom: 20px;
+}
+
+.block__city {
+	font-size: 24px;
+	height: 24px;
+	font-weight: 700;
+}
+
+.block__country {
+	font-size: 14px;
+	height: 14px;
+	margin-bottom: 30px;
+}
+
+.block__info {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 2;
+}
+
+.block__text {
+	display: inline-block;
+	text-align: center;
+	min-height: 18px;
+	margin-bottom: 25px;
+}
