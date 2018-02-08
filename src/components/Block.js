@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Block extends Component {
-
+  
   wind() {
     let value = this.props.data.wind_kph;
     let units = 'km/h';
@@ -16,10 +16,11 @@ class Block extends Component {
   render() {
     return (
       <div className="block">
-        <div className="block__service">{this.props.info.site}</div>
-        <div className="block__city">{this.props.data.name}</div>
-        <div className="block__country">{this.props.data.country}</div>
-
+        <div className="block__header">
+          <div className="block__service">{this.props.info.site}</div>
+          <div className="block__city">{this.props.data.name}</div>
+          <div className="block__country">{this.props.data.country}</div>
+        </div>
         <div className="block__info">
           <div className="block__text">Temp: {this.props.data.temp} C</div>
           <div className="block__text">Humidity: {this.props.data.humidity} %</div>

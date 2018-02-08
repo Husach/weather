@@ -7,16 +7,15 @@ class Open extends Base {
     this.state.info = {
       site: 'OpenWeather',
       key: '5fbf2d5bb1ffe0f4f72cacb24232754b',  //key: 'ff4c359a0daebb85920ed39af4b4ca20'
-      cityId: 703448,
-      units: 'metric'
+      lat: 49.1,
+      lng: 33.42041
     }
   }
 
-    load() {
-    //axios.get(`https://api.openweathermap.org/data/2.5/weather?id=${this.state.info.cityId}&APPID=${this.state.info.key}&units=${this.state.info.units}`)
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=50.43&lon=30.52&APPID=${this.state.info.key}&units=${this.state.info.units}`)
+    load() {    
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${this.state.info.lat}&lon=${this.state.info.lng}&APPID=${this.state.info.key}&units=metric`)
       .then(({data}) => {
-        console.log(data);
+        //console.log(data);
 
         let input = {
           name: data.name,

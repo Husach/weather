@@ -14,7 +14,6 @@ class Content extends Component {
         <Accu />
         <WU />
 
-
       </div>
     )
   }

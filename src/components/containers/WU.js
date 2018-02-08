@@ -20,10 +20,10 @@ class WU extends Base {
           name: data.current_observation.display_location.city,
           country: data.current_observation.display_location.state_name,
           temp: data.current_observation.temp_c,
-          humidity: data.current_observation.relative_humidity,
+          humidity: data.current_observation.relative_humidity.slice(0, 2),
           wind_kph: data.current_observation.wind_kph,
           description: data.current_observation.icon,
-          last_updated: data.current_observation.observation_time_rfc822
+          last_updated: data.current_observation.observation_time_rfc822.slice(17, 22)
         }
         this.setState({
           data: input

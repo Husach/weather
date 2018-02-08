@@ -16,14 +16,21 @@ body {
 }
 
 .block {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	width: 300px;
-	min-height: 450px;
 	background: #ece1e1;
 	padding: 30px;
 	margin-right: 20px;
+}
+.block__header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 150px;
+}
+.block__info {
+	display: flex;
+	flex-direction: column;
+	min-height: 280px;
 }
 
 .block__service {
@@ -33,21 +40,15 @@ body {
 }
 
 .block__city {
+	display: inline-block;
+	text-align: center;
 	font-size: 24px;
-	height: 24px;
 	font-weight: 700;
 }
 
 .block__country {
 	font-size: 14px;
-	height: 14px;
 	margin-bottom: 30px;
-}
-
-.block__info {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 2;
 }
 
 .block__text {
@@ -55,4 +56,13 @@ body {
 	text-align: center;
 	min-height: 18px;
 	margin-bottom: 25px;
+}
+
+.btn-refresh {
+	vertical-align: middle;
+	margin-right: 50px;
+}
+
+.select {
+	vertical-align: middle;
 }
