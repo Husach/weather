@@ -10,59 +10,84 @@ body {
   font-family: sans-serif;
 }
 
+.page {
+	width: 1500px;
+	margin: 0 auto;
+}
+
+.page-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+}
+
+.header__info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-width: 150px;
+	min-height: 150px;
+	margin-right: 157px;
+}
+
+.header__btn-refresh {
+	height: 36px;
+}
+
+.block__city {
+	display: inline-block;
+	text-align: center;
+	font-size: 36px;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.block__country {
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+
 .page-weather {
 	display: flex;
-	padding: 30px;
+	justify-content: space-around;
 }
 
 .block {
-	width: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 260px;
 	background: #ece1e1;
 	padding: 30px;
-	margin-right: 20px;
 }
 .block__header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	min-height: 150px;
+	min-height: 50px;
 }
 .block__info {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	min-height: 280px;
 }
 
 .block__service {
 	font-size: 16px;
 	font-style: italic;
+	font-weight: 700;
 	margin-bottom: 20px;
 }
 
-.block__city {
-	display: inline-block;
-	text-align: center;
-	font-size: 24px;
-	font-weight: 700;
-}
-
-.block__country {
-	font-size: 14px;
-	margin-bottom: 30px;
-}
-
 .block__text {
-	display: inline-block;
-	text-align: center;
 	min-height: 18px;
 	margin-bottom: 25px;
 }
 
-.btn-refresh {
-	vertical-align: middle;
-	margin-right: 50px;
-}
-
-.select {
-	vertical-align: middle;
+.block__update {
+	font-size: 14px;
+	font-style: italic;
 }

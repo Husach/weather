@@ -7,18 +7,16 @@ class WU extends Base {
     this.state.info = {
       site: 'WeatherUndeground',
       key: '055b0e18b78261f4',
-      cityId: 'Kiev'
+      name: 'Kiev'
     }
   }
 
   load() {
-    axios.get(`http://api.wunderground.com/api/${this.state.info.key}/conditions/q/CA/${this.state.info.cityId}.json`)
+    axios.get(`http://api.wunderground.com/api/${this.state.info.key}/conditions/q/CA/${this.state.info.name}.json`)
       .then(({data}) => {
         //console.log(data);
 
         let input = {
-          name: data.current_observation.display_location.city,
-          country: data.current_observation.display_location.state_name,
           temp: data.current_observation.temp_c,
           humidity: data.current_observation.relative_humidity.slice(0, 2),
           wind_kph: data.current_observation.wind_kph,

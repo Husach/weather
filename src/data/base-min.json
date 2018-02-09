@@ -1,14 +1,50 @@
 [
   {
-    "country": "UA",
+    "country": "Ukraine",
     "name": "Kremenchuk",
     "lat": "49.1",
     "lng": "33.42041"
   },
   {
-    "country": "UA",
+    "country": "Ukraine",
     "name": "Kyiv",
     "lat": "50.45466",
     "lng": "30.5238"
+  },
+  {
+    "country": "Ukraine",
+    "name": "Poltava",
+    "lat": "49.59373",
+    "lng": "34.54073"
+  },
+  {
+    "country": "Ukraine",
+    "name": "Sumy",
+    "lat": "50.9216",
+    "lng": "34.80029"
+  },
+  {
+    "country": "Ukraine",
+    "name": "Cherkasy",
+    "lat": "49.42854",
+    "lng": "32.06207"
+  },
+  {
+    "country": "Ukraine",
+    "name": "Dnipro",
+    "lat": "48.4593",
+    "lng": "35.03865"
+  },
+  {
+    "country": "Ukraine",
+    "name": "Rovnoye",
+    "lat": "45.35134",
+    "lng": "34.3523"
+  },
+  {
+    "country": "Ukraine",
+    "name": "Kherson",
+    "lat": "46.65581",
+    "lng": "32.6178"
   }
 ]

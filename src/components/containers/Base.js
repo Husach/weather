@@ -10,7 +10,11 @@ class Base extends Component {
   }
 
   componentDidMount() {
-    this.load()
+    this.load(this.props);
+  }
+
+  componentWillReceiveProps(props) {
+    this.load(props);
   }
 
   render() {

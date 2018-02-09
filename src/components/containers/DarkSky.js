@@ -13,7 +13,7 @@ class DarkSky extends Base {
   load() {
     axios.get(`https://api.darksky.net/forecast/939dc229c7509b7789a1f97739980dff/37.8267,-122.4233`)
       .then(({data}) => {
-        console.log(data);
+        //console.log(data);
 
         let input = {
           description: data.daily.data.precipType
