@@ -10,13 +10,14 @@ class DarkSky extends Base {
     }
   }
 
-  load() {
-    axios.get(`https://api.darksky.net/forecast/939dc229c7509b7789a1f97739980dff/37.8267,-122.4233`)
+  load(props) {
+
+    axios.get(`https://api.darksky.net/forecast/939dc229c7509b7789a1f97739980dff/49.1,33.42`)
+    //axios.get(`https://api.darksky.net/forecast/${this.state.info.key}/${props.selected.lat},${props.selected.lng}`)
       .then(({data}) => {
-        //console.log(data);
+        console.log(data);
 
         let input = {
-          description: data.daily.data.precipType
           // temp: data.currently,
           // humidity: data[0].RelativeHumidity,
           // wind_kph: data[0].Wind.Speed.Metric.Value,
@@ -28,6 +29,10 @@ class DarkSky extends Base {
         this.setState({
           data: input
         })
+      })
+
+      .catch(error => {
+        console.log('DarkSky error');
       })
   }
 }

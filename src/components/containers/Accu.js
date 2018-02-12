@@ -6,18 +6,19 @@ class Accu extends Base {
     super(props);
     this.state.info = {
       site: 'AccuWeather',
-      key: ['y7giraWsK8UoAAAnQiTYQwsIi8qNr1iH', 'O2iwbfFkzf4pQXO6e98n9fOAG6hYKPFy','vqW4avfEBNpN0pI7GIoautnCv30acNw2']
+      key: ['y7giraWsK8UoAAAnQiTYQwsIi8qNr1iH', 'O2iwbfFkzf4pQXO6e98n9fOAG6hYKPFy','vqW4avfEBNpN0pI7GIoautnCv30acNw2'],
+      index: 0
     }
   }
 
   load(props) {
-    axios.get(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${this.state.info.key[1]}&q=${props.selected.lat},${props.selected.lng}&language=en&details=true&toplevel=false`)
+    axios.get(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${this.state.info.key[this.state.info.index]}&q=${props.selected.lat},${props.selected.lng}&language=en&details=true&toplevel=false`)
       .then(({data}) => {
         //console.log(data);
         this.setState({
           data
         })
-        axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${this.state.data.Key}?apikey=${this.state.info.key[1]}&language=en&details=true`)
+        axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${this.state.data.Key}?apikey=${this.state.info.key[this.state.info.index]}&language=en&details=true`)
           .then(({data}) => {
             //console.log(data);
 
@@ -34,6 +35,24 @@ class Accu extends Base {
               data: input
             })
           })
+          .catch(error => {
+            console.log('catch is working')
+            //debugger
+            this.setState({
+              index: this.state.info.index++
+             },
+             this.load.bind(this, props)
+           )
+          })
+      })
+      .catch(error => {
+        console.log('catch is working')
+        //debugger
+        this.setState({
+          index: this.state.info.index++
+         },
+         this.load.bind(this, props)
+       )
       })
     }
 

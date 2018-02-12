@@ -4,13 +4,11 @@ class Block extends Component {
 
   wind() {
     let value = this.props.data.wind_kph;
-    let units = 'km/h';
 
     if (this.props.data.wind_mps) {
-      value = this.props.data.wind_mps;
-      units = 'm/s';
+      value = (this.props.data.wind_mps * 3.6).toFixed(1);
     }
-    return <div className="block__text">Wind: {value} {units}</div>
+    return <div className="block__text">Wind: {value} km/h</div>
   }
 
   render() {
@@ -23,7 +21,7 @@ class Block extends Component {
           <div className="block__text">Temp: {this.props.data.temp} C</div>
           <div className="block__text">Humidity: {this.props.data.humidity} %</div>
           {this.wind()}
-          <div className="block__text">Direction: {this.props.data.wind_degree} deg</div>
+          <div className="block__text">Direction: {Math.round(((this.props.data.wind_degree) * 10) / 10)} deg</div>
           <div className="block__text">Description: {this.props.data.description}</div>
         </div>
         <div className="block__update">Last update: {this.props.data.last_updated}</div>

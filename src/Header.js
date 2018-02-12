@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Search from './components/Search';
 import Select from './components/Select';
-import RaisedButton from 'material-ui/RaisedButton';
 const database = require('./data/base-min.json');
 
 class Header extends Component {
@@ -11,8 +11,7 @@ class Header extends Component {
         lat: '49.1,',
         lng: '33.42041',
         name: 'Kremenchug',
-        country: 'Ukraine',
-        flag: false
+        country: 'Ukraine'
       }
     }
   }
@@ -25,11 +24,17 @@ class Header extends Component {
     })
   }
 
-  refresh() {
-    console.log('refresh')
-    this.setState({
-      flag: !this.state.flag
-    })
+  searchHandler(search) {
+    let city = database.find(itm => itm.name.toLowerCase().match(search.toLowerCase()));
+
+    if (city) {
+      this.props.onChangeSelected(city);
+      this.setState({
+        input: city
+      })
+    } else {
+      alert('Сheck the name of the entered city');
+    }
   }
 
   render() {
@@ -47,12 +52,7 @@ class Header extends Component {
           <div className="block__country">{country}</div>
         </div>
 
-        <RaisedButton
-          className="header__btn-refresh"
-          label="Refresh"
-          primary={true}
-          onClick={this.refresh.bind(this)}
-        />
+        <Search searchHandler={this.searchHandler.bind(this)}/>
       </div>
     )
   }

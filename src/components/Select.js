@@ -4,9 +4,9 @@ import SelectField from 'material-ui/SelectField';
 
 const Select = ({options, handleChange, selected}) => (
   <SelectField
-    className="select"
+    className="header__select"
     value={selected ? selected.name : null}
-    floatingLabelText="choose city"
+    floatingLabelText="Choose city"
     onChange={handleChange.bind(this)}
   >
       {options.map((city) => {

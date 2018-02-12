@@ -6,27 +6,40 @@ class Open extends Base {
     super(props);
     this.state.info = {
       site: 'OpenWeather',
-      key: ['5fbf2d5bb1ffe0f4f72cacb24232754b','ff4c359a0daebb85920ed39af4b4ca20']
+      key: ['5fbf2d5bb1ffe0f4f72cacb24232754b', 'ff4c359a0daebb85920ed39af4b4ca20'],
+      index: 0
     }
   }
 
   load(props) {
-  axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${props.selected.lat}&lon=${props.selected.lng}&APPID=${this.state.info.key[0]}&units=metric`)
-    .then(({data}) => {
-      //console.log(data);
+    if (this.state.info.index === this.state.info.key.length) {
+      this.state.info.index = 0
+    }
 
-      let input = {
-        temp: data.main.temp,
-        humidity: data.main.humidity,
-        wind_mps: data.wind.speed,
-        wind_degree: data.wind.deg,
-        description: data.weather[0].description
-      }
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${props.selected.lat}&lon=${props.selected.lng}&APPID=${this.state.info.key[this.state.info.index]}&units=metric`)
+      .then(({data}) => {
+        //console.log(data);
+        let input = {
+          temp: data.main.temp,
+          humidity: data.main.humidity,
+          wind_mps: data.wind.speed,
+          wind_degree: data.wind.deg,
+          description: data.weather[0].description
+        }
 
-      this.setState({
-        data: input
+        this.setState({
+          data: input
+        })
       })
-    })
+      .catch(error => {
+        console.log('catch is working')
+        //debugger
+        this.setState({
+          index: this.state.info.index++
+         },
+         this.load.bind(this, props)
+       )
+      })
   }
 }
 
